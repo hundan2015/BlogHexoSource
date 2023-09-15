@@ -1,0 +1,3 @@
+[submodule "themes/vivia"]
+	path = themes/vivia
+	url = https://github.com/hundan2015/hexo-theme-vivia.git
