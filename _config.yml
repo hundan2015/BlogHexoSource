@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 黄鸭数据库
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: en
+author: Symbolic
+language: zh-cn
 timezone: ''
 
 # URL
@@ -102,4 +102,5 @@ theme: vivia
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/hundan2015/hundan2015.github.io
