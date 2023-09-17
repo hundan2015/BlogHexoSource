@@ -107,3 +107,14 @@ theme: vivia
 deploy:
   type: git
   repo: https://github.com/hundan2015/hundan2015.github.io
+
+markdown_it_plus:
+    highlight: true
+    html: true
+    xhtmlOut: true
+    breaks: true
+    langPrefix:
+    linkify: true
+    typographer:
+    quotes: “”‘’
+    pre_class: highlight
