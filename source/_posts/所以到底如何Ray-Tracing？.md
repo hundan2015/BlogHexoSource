@@ -55,7 +55,7 @@ Ray tracing算是渲染领域中很经典的话题了。这个算法突出的就
 
 ### 这比光栅化的Lambert模型简单多了，为什么？
 
-让我们再次回顾一下渲染方程（这次我们还是只关注后半部分）：
+让我们再次回顾一下渲染方程[<sup>1</sup>](#refer-anchor-1)（这次我们还是只关注后半部分）：
 
 {% katex '{"displayMode":true}' %}
 \begin{aligned}
@@ -93,3 +93,10 @@ L_{out}(x,\hat{\omega}_{out},\lambda) &= L_{emis}(x,\hat{\omega}_{out},\lambda) 
 {% katex '{"displayMode":true }'%}
 L_{in}(x,\hat{\omega}_{in},\lambda)
 {% endkatex %}
+
+## 参考文献
+
+<div id="refer-anchor-1"></div>
+1. Dunn F, Parberry I. 3D math primer for graphics and game development[M]. CRC Press, 2011.
+<div id="refer-anchor-2"></div>
+2. Shirley P. Ray tracing in one weekend[J]. Amazon Digital Services LLC, 2018, 1: 4.
