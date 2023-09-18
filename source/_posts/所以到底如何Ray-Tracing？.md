@@ -9,6 +9,7 @@ categories:
 
 katex: true
 ---
+
 ## 写在前面
 
 Ray tracing算是渲染领域中很经典的话题了。这个算法突出的就是一个纯纯的暴力，但这也是目前最真实的算法。而且，即便暴力，为了实现更快的速度，无数的前辈们也是在用各种统计上的方法还有各种数学组合来使得运算变得更加快速。这从最初的Whitted Style到现在的Path Tracing，全都是各位前辈取得的成果。
@@ -55,26 +56,24 @@ Ray tracing算是渲染领域中很经典的话题了。这个算法突出的就
 
 ### 这比光栅化的Lambert模型简单多了，为什么？
 
-让我们再次回顾一下渲染方程[<sup>1</sup>](#refer-anchor-1)（这次我们还是只关注后半部分）：
-
-{% katex '{"displayMode":true}' %}
+让我们再次回顾一下渲染方程[^1]（这次我们还是只关注后半部分）：
+$$
 \begin{aligned}
 
 L_{out}(x,\hat{\omega}_{out},\lambda) &= L_{emis}(x,\hat{\omega}_{out},\lambda) \\&+ \int_{\Omega}^{}L_{in}(x,\hat{\omega}_{in},\lambda)f(x,\hat{\omega}_{in},\hat{\omega}_{out},\lambda)(-\hat{\omega}_{in}\cdot\hat{n}) d\hat{\omega}_{in}
 
 \end{aligned}
-{% endkatex %}
+$$
 
 通过使用蒙特卡洛积分，我们将后半部分变成了类似下面的形式：
-{% katex '{"displayMode":true}' %}
+$$
 \sum_{}^{}
 \frac{L_{in}(x,\hat{\omega}_{in},\lambda)f(x,\hat{\omega}_{in},\hat{\omega}_{out},\lambda)(-\hat{\omega}_{in}\cdot\hat{n})}
 {p(\hat{\omega}_{out})}
-{% endkatex %}
+$$
 
-我们知道Lambert模型反射光的性质，再结合我们路径追踪的算法，就可以得出用随机球得出光线的算法，其中计算的公式为：
-
-{% katex '{"displayMode":true,"maxSize":10}' %}
+我们知道Lambert模型反射光的性质，再结合我们路径追踪[^2]的算法，就可以得出用随机球得出光线的算法，其中计算的公式为：
+$$
 \begin{aligned}
 
 \sum_{}^{}&
@@ -86,17 +85,15 @@ L_{out}(x,\hat{\omega}_{out},\lambda) &= L_{emis}(x,\hat{\omega}_{out},\lambda) 
 &= L_{in}(x,\hat{\omega}_{in},\lambda)f(x,\hat{\omega}_{in},\hat{\omega}_{out},\lambda)
 
 \end{aligned}
-{% endkatex %}
+$$
 
 再加上我们在这个阶段简单认为光线是均匀吸收，均匀发散的，因此BRDF项我们也可以简单看成1，进而这个Lambert模型只需要考虑入射光即可。也就是：
 
-{% katex '{"displayMode":true }'%}
+$$
 L_{in}(x,\hat{\omega}_{in},\lambda)
-{% endkatex %}
+$$
 
-## 参考文献
+## 参考文献与脚注
 
-<div id="refer-anchor-1"></div>
-1. Dunn F, Parberry I. 3D math primer for graphics and game development[M]. CRC Press, 2011.
-<div id="refer-anchor-2"></div>
-2. Shirley P. Ray tracing in one weekend[J]. Amazon Digital Services LLC, 2018, 1: 4.
+[^1]: Dunn F, Parberry I. 3D math primer for graphics and game development[M]. CRC Press, 2011.
+[^2]: Shirley P. Ray tracing in one weekend[J]. Amazon Digital Services LLC, 2018, 1: 4.
