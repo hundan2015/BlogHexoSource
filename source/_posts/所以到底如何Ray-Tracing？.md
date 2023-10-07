@@ -54,6 +54,26 @@ Ray tracing算是渲染领域中很经典的话题了。这个算法突出的就
 
 ### Ray tracing中的Lambert
 
+我们在实际的工程中，使用了Path Tracing的方法，因此我们关注的就是一束光打到物体之后，这束光接下来会去哪的问题，也就是如何设计Scatter的问题。
+
+我们通过一个很巧妙的方法来构建一个依概率为$P(\theta) = cos(\theta)$的向量。就是使用一个单位球体，结合单位法线向量生成一个随机的方向，就像下面的图所示。
+
+这种方法为什么能成立呢？我们通过简单的球面积分对这个问题进行证明。
+
+![球面积分](circle.svg)
+
+让我们看一下这个球。这个问题，本质上是一个几何概型问题。对于球面上每个点，其落在上面的概率为$P(V)=\frac{1}{2\pi R^{2}}$
+
+$$
+\begin{aligned}
+F(\theta) &= \int\int\frac{1}{4\pi R^{2}} R^{2} sin(\alpha)d\alpha d\rho \\
+          &= \int_{0}^{2\theta}\frac{1}{2} sin(\alpha)d\alpha \\
+          &= \frac{1 - cos(2\theta)}{2} \\
+          &= sin^{2}\theta
+
+\end{aligned}
+$$
+
 ### 这比光栅化的Lambert模型简单多了，为什么？
 
 让我们再次回顾一下渲染方程[^1]（这次我们还是只关注后半部分）：
